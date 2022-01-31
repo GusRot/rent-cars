@@ -3,8 +3,8 @@
     "port": 5432,
     "host": "localhost",
     "username": "docker",
-    "password": "gusrot",
-    "database": "rent-cars",
+    "password": "ignite",
+    "database": "rentx",
     "migrations": ["./src/database/migrations/*ts"],
     "cli": {
         "migrationsDir":"src/database/migrations"
