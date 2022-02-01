@@ -1,7 +1,7 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
-@Entity("user")
+@Entity("users")
 class User {
     @PrimaryColumn()
     id: string;
@@ -14,7 +14,7 @@ class User {
     @Column()
     password: string;
     @Column()
-    driver_licence: string;
+    driver_license: string;
     @Column()
     isAdmin: boolean;
     @CreateDateColumn()

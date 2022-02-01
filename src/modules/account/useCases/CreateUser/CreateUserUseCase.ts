@@ -1,3 +1,4 @@
+import { hash } from "bcryptjs";
 import { inject, injectable } from "tsyringe";
 import { IUserRepository } from "../../repositories/IUserRepository";
 
@@ -12,15 +13,26 @@ class CreateUserUseCase {
         name,
         username,
         email,
-        driver_licence,
+        driver_license,
         password,
     }): Promise<void> {
+        const passwordHash = await hash(password, 8);
+
+        const usernameExist = await this.userRepository.findByUsername(
+            username
+        );
+        const emailExist = await this.userRepository.findByEmail(email);
+
+        if (usernameExist || emailExist) {
+            throw new Error("username and email must be unique");
+        }
+
         await this.userRepository.create({
             name,
             username,
             email,
-            driver_licence,
-            password,
+            driver_license,
+            password: passwordHash,
         });
     }
 }
