@@ -1,5 +1,6 @@
 import { hash } from "bcryptjs";
 import { inject, injectable } from "tsyringe";
+import { AppError } from "../../../../errors";
 import { IUserRepository } from "../../repositories/IUserRepository";
 
 @injectable()
@@ -24,7 +25,7 @@ class CreateUserUseCase {
         const emailExist = await this.userRepository.findByEmail(email);
 
         if (usernameExist || emailExist) {
-            throw new Error("username and email must be unique");
+            throw new AppError("username and email must be unique");
         }
 
         await this.userRepository.create({
