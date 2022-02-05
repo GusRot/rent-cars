@@ -1,7 +1,9 @@
+import "reflect-metadata";
 import fs from "fs";
 import { parse } from "csv-parse";
 import { CategoriesRepository } from "../../repositories/implementations/CategoriesRepository";
 import { inject, injectable } from "tsyringe";
+import { request } from "express";
 
 interface IImportCategory {
     name: string;
@@ -46,10 +48,12 @@ class ImportCategoryUseCase {
     async execute(file: Express.Multer.File): Promise<void> {
         const categories = await this.loadCategories(file);
 
-        categories.map((category) => {
+        categories.map(async (category) => {
             const { name, description } = category;
 
-            const existCategory = this.categoryRepository.findByName(name);
+            const existCategory = await this.categoryRepository.findByName(
+                name
+            );
 
             if (!existCategory) {
                 this.categoryRepository.create({
