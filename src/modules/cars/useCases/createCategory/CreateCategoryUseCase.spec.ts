@@ -1,5 +1,6 @@
 import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
 import { CategoriesRepositoriesInMemory } from "../../repositories/TestsRepository/CategoriesRepositoriesInMemory";
+import { AppError } from "../../../../errors";
 
 let createCategoryUseCase: CreateCategoryUseCase;
 let categoriesRepositoriesInMemory: CategoriesRepositoriesInMemory;
@@ -12,7 +13,7 @@ describe("Criar Categoria", () => {
         );
     });
 
-    it("Espero criar uma nova categoria", async () => {
+    it("Deve ser possivel criar uma nova categoria", async () => {
         const category = {
             name: "Category Test",
             description: "Description Test",
@@ -27,5 +28,23 @@ describe("Criar Categoria", () => {
         );
 
         expect(categoryCreated).toHaveProperty("id");
+    });
+
+    it("Não deve ser possivel criar uma nova categoria com um nome existente", () => {
+        expect(async () => {
+            const category = {
+                name: "Category Test",
+                description: "Description Test",
+            };
+            await createCategoryUseCase.execute({
+                name: category.name,
+                description: category.description,
+            });
+
+            await createCategoryUseCase.execute({
+                name: category.name,
+                description: category.description,
+            });
+        }).rejects.toBeInstanceOf(AppError);
     });
 });

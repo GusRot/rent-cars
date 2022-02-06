@@ -1,4 +1,26 @@
-# IN DEVELOPMENT
+###  Version README [English](./README-en.md) 
+<div style="display: flex; gap:1rem;">
+<a href="#">
+<img alt="Repository size" src="https://img.shields.io/github/repo-size/GusRot/rent-cars">
+</a>
+<a href="#">
+<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/GusRot/rent-cars?color=%2304D361">
+</a>
+<a href="#">
+<img alt="Wakatime" src="https://wakatime.com/badge/user/04f1420e-9d57-410a-bdc7-d768fb237a52/project/e72e91e1-02ec-4ef5-b90a-eb294ecefce5.svg">
+</a>
+<a href="https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt" target="blank">
+<img alt="LicenseMIT" src="https://badgen.net/github/license/micromatch/micromatch">
+</a>
+</div>
+
+# 📝 O Projeto
+
+### Outras bibliotecas utilizadas
+
+- `jest`  `tsyringe`  `uuid`  `typeorm`  `swagger-ui-express` `multer` `csv-parse` `bcryptjs` `jsonwebtoken`
+
+# Desenvolvimento
 
 **RF** => Requisitos Funcionais
 **RNF** => Requisitos não Funcionais
@@ -81,3 +103,10 @@ O aluguel deve ter duração mínima de 24 horas.
 Não deve ser possível cadastrar um aluguel caso já exista um aberto para o mesmo usuário.
 Não deve ser possível cadastrar um aluguel caso já exista um aberto para o mesmo carro.
 O usuário deve estar logado na aplicação.
+
+### Available Scripts you can run
+
+`yarn install`
+`yarn start`
+`yarn build`
+`yarn test`

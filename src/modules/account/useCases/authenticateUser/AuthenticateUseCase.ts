@@ -3,7 +3,7 @@ import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
 import { AppError } from "../../../../errors";
-import { UserRepository } from "../../repositories/implementations/UserRepository";
+import { IUserRepository } from "@modules/account/repositories/IUserRepository";
 
 interface IAuthenticate {
     email: string;
@@ -22,7 +22,7 @@ interface IResponse {
 class AuthenticateUseCase {
     constructor(
         @inject("UserRepository")
-        private userRepository: UserRepository
+        private userRepository: IUserRepository
     ) {}
 
     async execute({ email, password }: IAuthenticate): Promise<IResponse> {
