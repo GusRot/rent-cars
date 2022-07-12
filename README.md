@@ -19,6 +19,7 @@
 ### Outras bibliotecas utilizadas
 
 - `jest`  `tsyringe`  `uuid`  `typeorm`  `swagger-ui-express` `multer` `csv-parse` `bcryptjs` `jsonwebtoken`
+- Para acessar a documentação com todas as rotas disponíveis e intruções de uso acesse `/api-docs`, após iniciar a aplicação
 
 # Desenvolvimento
 
@@ -26,14 +27,14 @@
 **RNF** => Requisitos não Funcionais
 **RN** => Regras de Negócio
 
-## Cadastro de usuário
+## *Cadastro de usuário*
 
 **RF**
 Deve ser possível cadastrar um novo usuário.
 Deve ser possível cadastrar uma imagem do avatar ao usuário, após o cadastro
 
 **RNF**
-O usuário deve ser cadastrado com todos os dados necessários utilizando o typeorm para as devidas validações.
+O usuário deve ser cadastrado com todos os dados necessários utilizando o `typeorm` para as devidas validações.
 O cadastro do avatar deve ser realizado utilizando o multer para o upload dos arquivos.
 A criptografia da senha deve ser realizada utilizando bcryptjs.
 Cada usuário deve possuir um id único gerado pelo uuid.
@@ -41,7 +42,7 @@ Cada usuário deve possuir um id único gerado pelo uuid.
 **RN**
 Não deve ser possível cadastrar um usuário com mesmo e-mail ou username.
 Ao usuário substituir a imagem do avatar, deve ser excluído a informação sobre a imagem anterior do banco de dados.
-## Cadastro de carro
+## *Cadastro de carro*
 
 **RF**
 Deve ser possível cadastrar um novo carro.
@@ -52,11 +53,11 @@ Utilizar o multer para o upload dos arquivos.
 Os arquivos devem estar no formato de acordo com o testUpload.csv disponibilizado na raiz do projeto
 
 **RN**
-Não deve ser possível cadastar um novo carro com placa já existente.
+Não deve ser possível cadastrar um novo carro com placa já existente.
 O carro deve ser cadastrado com disponibilidade, por padrão.
 Apenas um usuário administrador tem permissão para realizar cadastro.
 
-## Listagem de carros
+## *Listagem de carros*
 
 **RF**
 Deve ser possível listar todos os carros disponíveis.
@@ -65,13 +66,13 @@ Deve ser possível listar todos os carros disponíveis pelo nome da marca.
 Deve ser possível listar todos os carros disponíveis pelo nome do carro.
 
 **RNF**
-O carro deve ser cadastrado com todos os dados necessários utilizando o typeorm para as devidas validações.
+O carro deve ser cadastrado com todos os dados necessários utilizando o `typeorm` para as devidas validações.
 Cada carro deve possuir um id único gerado pelo uuid.
 
 **RN**
 O usuário não precisa estar logado no sistema para realizar a listagem.
 
-## Cadastro de Especificações no Carro
+## *Cadastro de Especificações no Carro*
 
 **RF**
 Deve ser possível cadastrar uma especificação para um carro.
@@ -81,10 +82,10 @@ Não deve ser possível cadastrar uma especificação para um carro não existen
 Não deve ser possível cadastrar uma especificação já existente para um carro.
 Apenas um usuário administrador tem permissão para realizar cadastro.
 
-## Cadastro de Imagens do Carro
+## *Cadastro de Imagens do Carro*
 
 **RF**
-Deve ser possível cadastrar a imagem d  o carro.
+Deve ser possível cadastrar a imagem do carro.
 
 **RNF**
 Utilizar o multer para o upload dos arquivos.
@@ -93,7 +94,7 @@ Utilizar o multer para o upload dos arquivos.
 O usuário deve poder cadastrar mais de uma imagem para o mesmo carro.
 Apenas um usuário administrador tem permissão para realizar cadastro.
 
-## Aluguel
+## *Aluguel*
 
 **RF**
 Deve ser possível cadastrar um aluguel.
